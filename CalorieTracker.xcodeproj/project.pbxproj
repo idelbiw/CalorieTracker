@@ -40,8 +40,8 @@
 		7BA1B82F256DFEC600BF05D0 = {
 			isa = PBXGroup;
 			children = (
-				7BA1B83A256DFEC600BF05D0 /* CalorieTracker */,
 				7BA1B839256DFEC600BF05D0 /* Products */,
+				7BA1B83A256DFEC600BF05D0 /* CalorieTracker */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +56,31 @@
 		7BA1B83A256DFEC600BF05D0 /* CalorieTracker */ = {
 			isa = PBXGroup;
 			children = (
-				7BA1B83B256DFEC600BF05D0 /* AppDelegate.swift */,
-				7BA1B83D256DFEC600BF05D0 /* SceneDelegate.swift */,
-				7BA1B83F256DFEC600BF05D0 /* ViewController.swift */,
+				7BA1B851256DFF2E00BF05D0 /* Other */,
+				7BA1B853256DFF3B00BF05D0 /* View Controllers */,
 				7BA1B841256DFEC600BF05D0 /* Main.storyboard */,
-				7BA1B844256DFEC700BF05D0 /* Assets.xcassets */,
-				7BA1B846256DFEC700BF05D0 /* LaunchScreen.storyboard */,
 				7BA1B849256DFEC700BF05D0 /* Info.plist */,
 			);
 			path = CalorieTracker;
+			sourceTree = "<group>";
+		};
+		7BA1B851256DFF2E00BF05D0 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				7BA1B83B256DFEC600BF05D0 /* AppDelegate.swift */,
+				7BA1B83D256DFEC600BF05D0 /* SceneDelegate.swift */,
+				7BA1B844256DFEC700BF05D0 /* Assets.xcassets */,
+				7BA1B846256DFEC700BF05D0 /* LaunchScreen.storyboard */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		7BA1B853256DFF3B00BF05D0 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7BA1B83F256DFEC600BF05D0 /* ViewController.swift */,
+			);
+			path = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

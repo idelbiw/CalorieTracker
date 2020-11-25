@@ -1,24 +1,94 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CalorieTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yDO-Oq-Use">
+                                <rect key="frame" x="0.0" y="813" width="414" height="49"/>
+                                <items>
+                                    <barButtonItem title="Clear All" id="XUE-u4-aGc"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="o0h-1H-u5H"/>
+                                    <barButtonItem systemItem="add" id="Z9E-GH-fLO"/>
+                                </items>
+                            </toolbar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qqV-n1-UcW">
+                                <rect key="frame" x="0.0" y="194" width="414" height="619"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bCV-jv-LLN" userLabel="Progress View">
+                                <rect key="frame" x="57" y="44" width="300" height="150"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="800" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yPW-oB-Cne" userLabel="Current Calories Label">
+                                        <rect key="frame" x="92" y="37.5" width="116" height="75.5"/>
+                                        <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="65"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EFZ-sz-oiJ" userLabel="Goal Stack">
+                                        <rect key="frame" x="108" y="113" width="84.5" height="20.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Goal: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gO9-OJ-9fh">
+                                                <rect key="frame" x="0.0" y="0.0" width="44" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1500" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vkD-Lm-tvK">
+                                                <rect key="frame" x="44" y="0.0" width="40.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="yPW-oB-Cne" firstAttribute="centerY" secondItem="bCV-jv-LLN" secondAttribute="centerY" id="6NR-CD-GG6"/>
+                                    <constraint firstAttribute="width" constant="300" id="Cis-ax-kjF"/>
+                                    <constraint firstItem="EFZ-sz-oiJ" firstAttribute="top" secondItem="yPW-oB-Cne" secondAttribute="bottom" id="GDG-hj-hDp"/>
+                                    <constraint firstItem="yPW-oB-Cne" firstAttribute="centerX" secondItem="bCV-jv-LLN" secondAttribute="centerX" id="SZY-GX-Ryc"/>
+                                    <constraint firstItem="EFZ-sz-oiJ" firstAttribute="centerX" secondItem="bCV-jv-LLN" secondAttribute="centerX" id="dpK-s8-Vjz"/>
+                                    <constraint firstAttribute="height" constant="150" id="vZ7-B2-uf6"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="yDO-Oq-Use" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="1CJ-mE-4UL"/>
+                            <constraint firstItem="bCV-jv-LLN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="32T-DD-JN3"/>
+                            <constraint firstItem="yDO-Oq-Use" firstAttribute="top" secondItem="qqV-n1-UcW" secondAttribute="bottom" id="GVF-Pn-Wqf"/>
+                            <constraint firstItem="bCV-jv-LLN" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="WXy-Ve-rwv"/>
+                            <constraint firstItem="qqV-n1-UcW" firstAttribute="top" secondItem="bCV-jv-LLN" secondAttribute="bottom" id="fss-a6-Kzv"/>
+                            <constraint firstItem="qqV-n1-UcW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="kXY-Tg-RA1"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="qqV-n1-UcW" secondAttribute="trailing" id="qSJ-HP-dQX"/>
+                            <constraint firstItem="yDO-Oq-Use" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="yvX-E4-sb0"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="yDO-Oq-Use" secondAttribute="bottom" id="zeJ-By-Mjs"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="34.782608695652179" y="107.8125"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
