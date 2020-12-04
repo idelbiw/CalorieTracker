@@ -70,9 +70,9 @@
 		7BA1B83A256DFEC600BF05D0 /* CalorieTracker */ = {
 			isa = PBXGroup;
 			children = (
-				7BEA200E25774D5100EEA902 /* Models */,
 				7BA1B851256DFF2E00BF05D0 /* Other */,
 				7BEA200525774CDD00EEA902 /* Extensions */,
+				7BEA200E25774D5100EEA902 /* Models */,
 				7B4B4C3925774F0B009126A9 /* Views */,
 				7BA1B853256DFF3B00BF05D0 /* View Controllers */,
 				7BA1B841256DFEC600BF05D0 /* Main.storyboard */,
