@@ -116,6 +116,7 @@
                     </view>
                     <connections>
                         <outlet property="calorieGoalLabel" destination="vkD-Lm-tvK" id="8UW-FO-MJg"/>
+                        <outlet property="clearAllButton" destination="XUE-u4-aGc" id="kGk-k9-vuu"/>
                         <outlet property="currentTotalLabel" destination="yPW-oB-Cne" id="zs8-CY-rO8"/>
                         <outlet property="tableView" destination="qqV-n1-UcW" id="M7M-GC-BG1"/>
                     </connections>
