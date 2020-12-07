@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CalorieTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="CalorieTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -19,9 +19,17 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yDO-Oq-Use">
                                 <rect key="frame" x="0.0" y="813" width="414" height="49"/>
                                 <items>
-                                    <barButtonItem title="Clear All" id="XUE-u4-aGc"/>
+                                    <barButtonItem title="Clear All" id="XUE-u4-aGc">
+                                        <connections>
+                                            <action selector="clearButton:" destination="BYZ-38-t0r" id="cHh-sk-pj6"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="o0h-1H-u5H"/>
-                                    <barButtonItem systemItem="add" id="Z9E-GH-fLO"/>
+                                    <barButtonItem systemItem="add" id="Z9E-GH-fLO">
+                                        <connections>
+                                            <action selector="addEntryButton:" destination="BYZ-38-t0r" id="7Wc-AA-X5g"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qqV-n1-UcW">
@@ -106,6 +114,11 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="yDO-Oq-Use" secondAttribute="bottom" id="zeJ-By-Mjs"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="calorieGoalLabel" destination="vkD-Lm-tvK" id="8UW-FO-MJg"/>
+                        <outlet property="currentTotalLabel" destination="yPW-oB-Cne" id="zs8-CY-rO8"/>
+                        <outlet property="tableView" destination="qqV-n1-UcW" id="M7M-GC-BG1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
