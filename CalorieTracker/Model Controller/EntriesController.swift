@@ -19,11 +19,8 @@ class EntriesController {
     
     //MARK: - Methods -
     func addNewCalorieEntry(_ newEntry: CalorieEntry) {
-        
-    }
-    
-    func addNewCalorieEntry(date: Date, calories: Int) {
-        
+        calorieEntries.append(newEntry)
+        saveEntries()
     }
     
     func saveEntries() {
@@ -49,6 +46,11 @@ class EntriesController {
         } catch {
             print("Loading entries failed! - Reason: \(error)")
         }
+    }
+    
+    func clearAllEntries() {
+        calorieEntries = []
+        saveEntries()
     }
     
 } //End of class
