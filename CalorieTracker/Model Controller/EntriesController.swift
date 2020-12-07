@@ -11,6 +11,7 @@ class EntriesController {
     
     //MARK: - Properties -
     var calorieEntries: [CalorieEntry] = []
+    var totalCalories = 0
     
     //MARK: - Initializer -
     init() {
@@ -18,8 +19,17 @@ class EntriesController {
     }
     
     //MARK: - Methods -
+    func calculateTotalCalories() {
+        var calorieCounter = 0
+        for entry in calorieEntries {
+            calorieCounter += entry.calories
+        }
+        totalCalories = calorieCounter
+    }
+    
     func addNewCalorieEntry(_ newEntry: CalorieEntry) {
         calorieEntries.append(newEntry)
+        calculateTotalCalories()
         saveEntries()
     }
     
@@ -46,10 +56,13 @@ class EntriesController {
         } catch {
             print("Loading entries failed! - Reason: \(error)")
         }
+        
+        calculateTotalCalories()
     }
     
     func clearAllEntries() {
         calorieEntries = []
+        calculateTotalCalories()
         saveEntries()
     }
     
