@@ -7,7 +7,7 @@
 
 import Foundation
 
-class CalorieEntry {
+class CalorieEntry: Codable {
     
     //MARK: - Properties -
     let calories: Int

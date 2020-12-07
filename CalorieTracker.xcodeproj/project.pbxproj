@@ -14,6 +14,7 @@
 		7BA1B843256DFEC600BF05D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BA1B841256DFEC600BF05D0 /* Main.storyboard */; };
 		7BA1B845256DFEC700BF05D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BA1B844256DFEC700BF05D0 /* Assets.xcassets */; };
 		7BA1B848256DFEC700BF05D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BA1B846256DFEC700BF05D0 /* LaunchScreen.storyboard */; };
+		7BA731F4257EB81E00F7D110 /* EntriesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA731F3257EB81E00F7D110 /* EntriesController.swift */; };
 		7BEA200725774CF200EEA902 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEA200625774CF200EEA902 /* String+.swift */; };
 		7BEA200B25774D4E00EEA902 /* CalorieEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEA200A25774D4E00EEA902 /* CalorieEntry.swift */; };
 /* End PBXBuildFile section */
@@ -28,6 +29,7 @@
 		7BA1B844256DFEC700BF05D0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7BA1B847256DFEC700BF05D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7BA1B849256DFEC700BF05D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7BA731F3257EB81E00F7D110 /* EntriesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntriesController.swift; sourceTree = "<group>"; };
 		7BEA200625774CF200EEA902 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		7BEA200A25774D4E00EEA902 /* CalorieEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieEntry.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -104,6 +106,7 @@
 		7BA731F22579F81700F7D110 /* Model Controller */ = {
 			isa = PBXGroup;
 			children = (
+				7BA731F3257EB81E00F7D110 /* EntriesController.swift */,
 			);
 			path = "Model Controller";
 			sourceTree = "<group>";
@@ -197,6 +200,7 @@
 				7BEA200B25774D4E00EEA902 /* CalorieEntry.swift in Sources */,
 				7BA1B840256DFEC600BF05D0 /* MainViewController.swift in Sources */,
 				7B4B4C4025774F47009126A9 /* CalorieEntryTableViewCell.swift in Sources */,
+				7BA731F4257EB81E00F7D110 /* EntriesController.swift in Sources */,
 				7BA1B83C256DFEC600BF05D0 /* AppDelegate.swift in Sources */,
 				7BEA200725774CF200EEA902 /* String+.swift in Sources */,
 				7BA1B83E256DFEC600BF05D0 /* SceneDelegate.swift in Sources */,
