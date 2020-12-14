@@ -24,10 +24,16 @@
                                             <action selector="clearAllButtonTapped:" destination="BYZ-38-t0r" id="cHh-sk-pj6"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="qJ4-7X-ahX"/>
+                                    <barButtonItem title="Set Goal" id="Bv9-GF-g11">
+                                        <connections>
+                                            <action selector="setGoalButtonTapped:" destination="BYZ-38-t0r" id="yv2-a5-7kI"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="o0h-1H-u5H"/>
                                     <barButtonItem systemItem="add" id="Z9E-GH-fLO">
                                         <connections>
-                                            <action selector="addEntryButton:" destination="BYZ-38-t0r" id="7Wc-AA-X5g"/>
+                                            <action selector="addEntryButtonTapped:" destination="BYZ-38-t0r" id="7Wc-AA-X5g"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>

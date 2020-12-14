@@ -12,6 +12,10 @@ class MainViewController: UIViewController {
     //MARK: - Properties -
     
     let entriesController = EntriesController()
+    let defaults = UserDefaults.standard
+    
+    // This key is used to store the user's daily goal
+    let dailyGoalKey = "DailyGoalKey"
     
     //MARK: - Presentable Alerts -
     
@@ -62,18 +66,40 @@ class MainViewController: UIViewController {
         return alert
     }
     
-    //MARK: - Methods -
+    var setDailyGoalAlert: UIAlertController {
+        let alert = UIAlertController(title: "Daily Calorie Goal 💪", message: "Enter the number of calories you want to limit yourself to daily, but if you'd like you can enter whatever you want 🙂", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default) { (_) in
+            let textField = alert.textFields![0]
+            let textInput = textField.text
+            self.defaults.setValue(textInput, forKey: self.dailyGoalKey)
+            self.updateDailyGoal()
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        alert.addTextField { (textField) in
+            textField.keyboardType = .numberPad
+            textField.addDoneButtonOnKeyboard()
+        }
+        alert.addAction(okAction)
+        alert.addAction(cancelAction)
+        return alert
+    }
     
+    //MARK: - Methods -
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
         updateViews()
+        updateDailyGoal()
     }
     
     func updateViews() {
         currentTotalLabel.text = String(entriesController.totalCalories)
         tableView.reloadData()
+    }
+    
+    func updateDailyGoal() {
+        calorieGoalLabel.text = defaults.value(forKey: dailyGoalKey) as? String
     }
     
     //MARK: - IBOutlets -
@@ -89,8 +115,12 @@ class MainViewController: UIViewController {
         present(clearAllEntriesWarningAlert, animated: true)
     }
     
-    @IBAction func addEntryButton(_ sender: UIBarButtonItem) {
+    @IBAction func addEntryButtonTapped(_ sender: UIBarButtonItem) {
         present(addEntryAlert, animated: true)
+    }
+    
+    @IBAction func setGoalButtonTapped(_ sender: UIBarButtonItem) {
+        present(setDailyGoalAlert, animated: true)
     }
     
 } //End of class
