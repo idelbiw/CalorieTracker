@@ -132,7 +132,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = CalorieEntryTableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: .calorieEntryCell) as! CalorieEntryTableViewCell
         let entry = entriesController.calorieEntries[indexPath.row]
         cell.calorieEntry = entry
         return cell
