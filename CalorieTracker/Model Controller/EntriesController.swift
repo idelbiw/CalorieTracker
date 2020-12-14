@@ -33,6 +33,10 @@ class EntriesController {
         saveEntries()
     }
     
+    func deleteEntry(_ entry: CalorieEntry) {
+        
+    }
+    
     func saveEntries() {
         let directoryURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
         let fileURL = URL(fileURLWithPath: "entries", relativeTo: directoryURL).appendingPathExtension("json")

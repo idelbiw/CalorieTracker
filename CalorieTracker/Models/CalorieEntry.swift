@@ -7,8 +7,8 @@
 
 import Foundation
 
-class CalorieEntry: Codable {
-    
+class CalorieEntry: Codable, Equatable {
+
     //MARK: - Properties -
     let calories: Int
     let date: Date
@@ -19,4 +19,15 @@ class CalorieEntry: Codable {
         self.date = Date()
     }
     
-}
+    //MARK: - Equatable conformance -
+    static func == (lhs: CalorieEntry, rhs: CalorieEntry) -> Bool {
+        var equatableTest = false
+        
+        if lhs.calories == rhs.calories && lhs.date == rhs.date {
+            equatableTest = true
+        }
+        
+        return equatableTest
+    }
+    
+} //End of class
