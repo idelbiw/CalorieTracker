@@ -33,8 +33,22 @@ class EntriesController {
         saveEntries()
     }
     
-    func deleteEntry(_ entry: CalorieEntry) {
-        
+    func deleteEntry(entryToDelete: CalorieEntry) {
+        var counter = -1
+        for entry in calorieEntries {
+            counter += 1
+            if entryToDelete == entry {
+                calorieEntries.remove(at: counter)
+                break
+            }
+        }
+        calculateTotalCalories()
+        saveEntries()
+    }
+    func deleteEntry(indexOfEntry: Int) {
+        calorieEntries.remove(at: indexOfEntry)
+        calculateTotalCalories()
+        saveEntries()
     }
     
     func saveEntries() {
