@@ -21,9 +21,7 @@ class MainViewController: UIViewController {
     
     var inputInvalidAlert: UIAlertController {
         let alert = UIAlertController(title: "Input Invalid", message: "What you entered for the amount of calories was invalid, please try again.", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default) { (_) in
-            self.present(self.addEntryAlert, animated: true)
-        }
+        let okAction = UIAlertAction(title: "OK", style: .default)
         alert.addAction(okAction)
         return alert
     }
@@ -58,8 +56,8 @@ class MainViewController: UIViewController {
         
         alert.addTextField { (textField) in
             textField.keyboardType = .numberPad
-            textField.addDoneButtonOnKeyboard()
         }
+        alert.addTextField(configurationHandler: { $0.placeholder = "Optional: name of meal or snack?"})
         alert.addAction(okButtonAction)
         alert.addAction(cancelButtonAction)
         
@@ -67,17 +65,20 @@ class MainViewController: UIViewController {
     }
     
     var setDailyGoalAlert: UIAlertController {
-        let alert = UIAlertController(title: "Daily Calorie Goal 💪", message: "Enter the number of calories you want to limit yourself to daily, but if you'd like you can enter whatever you want 🙂", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Daily Calorie Goal 💪", message: "Enter the number of calories you want to consume daily to achieve your calorie deficit", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default) { (_) in
             let textField = alert.textFields![0]
-            let textInput = textField.text
+            guard let textInput = textField.text else { return }
+            guard let _ = Int(textInput) else {
+                self.present(self.inputInvalidAlert, animated: true)
+                return
+            }
             self.defaults.setValue(textInput, forKey: self.dailyGoalKey)
             self.updateDailyGoal()
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
         alert.addTextField { (textField) in
             textField.keyboardType = .numberPad
-            textField.addDoneButtonOnKeyboard()
         }
         alert.addAction(okAction)
         alert.addAction(cancelAction)
