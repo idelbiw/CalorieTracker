@@ -10,6 +10,7 @@ import Foundation
 class CalorieEntry: Codable, Equatable {
 
     //MARK: - Properties -
+    let name: String?
     let calories: Int
     let date: Date
     
@@ -17,6 +18,13 @@ class CalorieEntry: Codable, Equatable {
     init(calories: Int) {
         self.calories = calories
         self.date = Date()
+        self.name = nil
+    }
+    
+    init(calories: Int, name: String) {
+        self.calories = calories
+        self.date = Date()
+        self.name = name
     }
     
     //MARK: - Equatable conformance -
@@ -25,6 +33,12 @@ class CalorieEntry: Codable, Equatable {
         
         if lhs.calories == rhs.calories && lhs.date == rhs.date {
             equatableTest = true
+        }
+         
+        if let lName = lhs.name, let rName = rhs.name {
+            if  lName != rName {
+                equatableTest = false
+            }
         }
         
         return equatableTest
