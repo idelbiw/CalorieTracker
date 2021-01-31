@@ -110,7 +110,7 @@ class MainViewController: UIViewController {
     }
     
     func updateDailyGoal() {
-        calorieGoalLabel.text = defaults.value(forKey: dailyGoalKey) as? String
+        calorieGoalLabel.text = (defaults.value(forKey: dailyGoalKey) as? String) ?? "0"
     }
     
     //MARK: - IBOutlets -
