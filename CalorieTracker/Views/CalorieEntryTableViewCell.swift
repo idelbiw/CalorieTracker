@@ -25,7 +25,13 @@ class CalorieEntryTableViewCell: UITableViewCell {
     //MARK: - Methods -
     func updateViews() {
         guard let entry = calorieEntry else { return }
-        textLabel?.text = String(entry.calories) + " Calories"
+        
+        guard let name = entry.name, entry.name != "" else {
+            textLabel?.text = "\(entry.calories) Cal"
+            return
+        }
+        
+        textLabel?.text = "\(entry.calories) Cal - \(name)"
         detailTextLabel?.text = dateFormatter.string(from: entry.date)
     }
     
