@@ -42,21 +42,31 @@ class MainViewController: UIViewController {
     var addEntryAlert: UIAlertController {
         let alert = UIAlertController(title: "New Calorie Entry", message: "Enter the number of calories for this entry", preferredStyle: .alert)
         let cancelButtonAction = UIAlertAction(title: "Cancel", style: .cancel)
+        
         let okButtonAction = UIAlertAction(title: "OK", style: .default) { (_) in
-            let textField = alert.textFields![0]
-            let textInput = textField.text
-            guard let calories = Int(textInput!) else {
+            let caloriesTextField = alert.textFields![0]
+            let nameTextField = alert.textFields![1]
+            
+            let caloriesInput = caloriesTextField.text
+            let nameInput = nameTextField.text
+            
+            guard let calories = Int(caloriesInput!) else {
                 self.present(self.inputInvalidAlert, animated: true)
                 return
             }
-            let newCalorieEntry = CalorieEntry(calories: calories)
-            self.entriesController.addNewCalorieEntry(newCalorieEntry)
-            self.updateViews()
+            
+            if let nameInput = nameInput {
+                let newCalorieEntry = CalorieEntry(calories: calories, name: nameInput)
+                self.entriesController.addNewCalorieEntry(newCalorieEntry)
+                self.updateViews()
+            } else {
+                let newCalorieEntry = CalorieEntry(calories: calories)
+                self.entriesController.addNewCalorieEntry(newCalorieEntry)
+                self.updateViews()
+            }
         }
         
-        alert.addTextField { (textField) in
-            textField.keyboardType = .numberPad
-        }
+        alert.addTextField { $0.keyboardType = .numberPad }
         alert.addTextField(configurationHandler: { $0.placeholder = "Optional: name of meal or snack?"})
         alert.addAction(okButtonAction)
         alert.addAction(cancelButtonAction)
