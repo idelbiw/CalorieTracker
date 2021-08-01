@@ -81,15 +81,14 @@ class CircularProgressBar: UIView {
                 timer.invalidate()
             } else {
                 currentTime += 0.05
-                let percent = currentTime/2 * 100
+//                let percent = currentTime/2 * 100
 //                self.label.text = "\(Int(progress * percent))"
-                self.label.text = "\(self.controller.totalCalories)"
-                self.setForegroundLayerColorForSafePercent()
-                self.configLabel()
             }
         }
         timer.fire()
-        
+        self.label.text = "\(self.controller.totalCalories)"
+        self.setForegroundLayerColorForSafePercent()
+        self.configLabel()
     }
     
     //MARK: Private

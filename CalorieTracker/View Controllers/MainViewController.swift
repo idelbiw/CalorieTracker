@@ -49,12 +49,10 @@ class MainViewController: UIViewController {
                 let newCalorieEntry = CalorieEntry(calories: calories, name: nameInput)
                 self.controller.addNewCalorieEntry(newCalorieEntry)
                 self.updateViews()
-                self.updateProgressView()
             } else {
                 let newCalorieEntry = CalorieEntry(calories: calories)
                 self.controller.addNewCalorieEntry(newCalorieEntry)
                 self.updateViews()
-                self.updateProgressView()
             }
         }
         
@@ -102,13 +100,12 @@ class MainViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         updateViews()
-        updateDailyGoal()
-        configureProgressView()
-        updateProgressView()
     }
     func updateViews() {
         addEntryButton.circular()
         tableView.reloadData()
+        updateDailyGoal()
+        configureProgressView()
         updateProgressView()
     }
     func updateDailyGoal() {
@@ -126,7 +123,8 @@ class MainViewController: UIViewController {
         let totalcalories = Double(controller.totalCalories)
         let goal = Double(defaults.value(forKey: .dailyGoalKey) as? String ?? "0")!
         let result = totalcalories / goal
-        progressView.setProgress(to: result, withAnimation: true)
+        progressView.setProgress(to: result, withAnimation: false)
+        
     }
     
     //MARK: - Navigtion
@@ -141,6 +139,7 @@ class MainViewController: UIViewController {
     
     //MARK: - IBActions
     @IBAction func addEntryButtonTapped(_ sender: UIButton) {
+        
         present(addEntryAlert, animated: true)
     }
     
