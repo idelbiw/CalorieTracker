@@ -120,11 +120,11 @@ class MainViewController: UIViewController {
         progressView.lineColor = .systemBlue
         progressView.lineFinishColor = .green
         progressView.lineBackgroundColor = .lightGray
-        progressView.safePercent = Int(defaults.value(forKey: .dailyGoalKey)as! String)!
+        progressView.safePercent = Int(defaults.value(forKey: .dailyGoalKey)as? String ?? "0")!
     }
     func updateProgressView() {
         let totalcalories = Double(controller.totalCalories)
-        let goal = Double(defaults.value(forKey: .dailyGoalKey)as! String)!
+        let goal = Double(defaults.value(forKey: .dailyGoalKey) as? String ?? "0")!
         let result = totalcalories / goal
         progressView.setProgress(to: result, withAnimation: true)
     }
