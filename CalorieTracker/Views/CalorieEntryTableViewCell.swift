@@ -17,7 +17,7 @@ class CalorieEntryTableViewCell: UITableViewCell {
     }
     var dateFormatter: DateFormatter {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .short
+        dateFormatter.dateStyle = .none
         dateFormatter.timeStyle = .short
         return dateFormatter
     }

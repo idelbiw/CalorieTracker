@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B0E29522669BFD3000EB161 /* CircularProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0E29512669BFD3000EB161 /* CircularProgressBar.swift */; };
+		7B2525F025F32ABC006257D6 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2525EF25F32ABC006257D6 /* UIView+.swift */; };
+		7B2525F325F336CA006257D6 /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2525F225F336CA006257D6 /* OptionsViewController.swift */; };
 		7B4B4C4025774F47009126A9 /* CalorieEntryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4B4C3F25774F47009126A9 /* CalorieEntryTableViewCell.swift */; };
+		7B90A0D8260662D700B686FC /* CalorieEntryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B90A0D7260662D700B686FC /* CalorieEntryDetailViewController.swift */; };
 		7BA1B83C256DFEC600BF05D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA1B83B256DFEC600BF05D0 /* AppDelegate.swift */; };
 		7BA1B83E256DFEC600BF05D0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA1B83D256DFEC600BF05D0 /* SceneDelegate.swift */; };
 		7BA1B840256DFEC600BF05D0 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA1B83F256DFEC600BF05D0 /* MainViewController.swift */; };
@@ -21,7 +25,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7B0E29512669BFD3000EB161 /* CircularProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBar.swift; sourceTree = "<group>"; };
+		7B2525EF25F32ABC006257D6 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
+		7B2525F225F336CA006257D6 /* OptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
 		7B4B4C3F25774F47009126A9 /* CalorieEntryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieEntryTableViewCell.swift; sourceTree = "<group>"; };
+		7B90A0D7260662D700B686FC /* CalorieEntryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieEntryDetailViewController.swift; sourceTree = "<group>"; };
 		7BA1B838256DFEC600BF05D0 /* CalorieTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalorieTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BA1B83B256DFEC600BF05D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7BA1B83D256DFEC600BF05D0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				7B4B4C3F25774F47009126A9 /* CalorieEntryTableViewCell.swift */,
+				7B0E29512669BFD3000EB161 /* CircularProgressBar.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -75,7 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				7BA1B851256DFF2E00BF05D0 /* Other */,
-				7BEA200525774CDD00EEA902 /* Extensions */,
+				7BEA200525774CDD00EEA902 /* +Extensions */,
 				7BEA200E25774D5100EEA902 /* Models */,
 				7BA731F22579F81700F7D110 /* Model Controller */,
 				7B4B4C3925774F0B009126A9 /* Views */,
@@ -101,6 +110,8 @@
 			isa = PBXGroup;
 			children = (
 				7BA1B83F256DFEC600BF05D0 /* MainViewController.swift */,
+				7B2525F225F336CA006257D6 /* OptionsViewController.swift */,
+				7B90A0D7260662D700B686FC /* CalorieEntryDetailViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -113,13 +124,14 @@
 			path = "Model Controller";
 			sourceTree = "<group>";
 		};
-		7BEA200525774CDD00EEA902 /* Extensions */ = {
+		7BEA200525774CDD00EEA902 /* +Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				7BEA200625774CF200EEA902 /* String+.swift */,
 				7BA731F7257ECEFA00F7D110 /* TextField+.swift */,
+				7B2525EF25F32ABC006257D6 /* UIView+.swift */,
 			);
-			path = Extensions;
+			path = "+Extensions";
 			sourceTree = "<group>";
 		};
 		7BEA200E25774D5100EEA902 /* Models */ = {
@@ -146,6 +158,8 @@
 			dependencies = (
 			);
 			name = CalorieTracker;
+			packageProductDependencies = (
+			);
 			productName = CalorieTracker;
 			productReference = 7BA1B838256DFEC600BF05D0 /* CalorieTracker.app */;
 			productType = "com.apple.product-type.application";
@@ -173,6 +187,8 @@
 				Base,
 			);
 			mainGroup = 7BA1B82F256DFEC600BF05D0;
+			packageReferences = (
+			);
 			productRefGroup = 7BA1B839256DFEC600BF05D0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -202,12 +218,16 @@
 			files = (
 				7BEA200B25774D4E00EEA902 /* CalorieEntry.swift in Sources */,
 				7BA1B840256DFEC600BF05D0 /* MainViewController.swift in Sources */,
+				7B90A0D8260662D700B686FC /* CalorieEntryDetailViewController.swift in Sources */,
 				7B4B4C4025774F47009126A9 /* CalorieEntryTableViewCell.swift in Sources */,
 				7BA731F4257EB81E00F7D110 /* EntriesController.swift in Sources */,
+				7B2525F025F32ABC006257D6 /* UIView+.swift in Sources */,
 				7BA1B83C256DFEC600BF05D0 /* AppDelegate.swift in Sources */,
 				7BEA200725774CF200EEA902 /* String+.swift in Sources */,
 				7BA1B83E256DFEC600BF05D0 /* SceneDelegate.swift in Sources */,
 				7BA731F8257ECEFA00F7D110 /* TextField+.swift in Sources */,
+				7B2525F325F336CA006257D6 /* OptionsViewController.swift in Sources */,
+				7B0E29522669BFD3000EB161 /* CircularProgressBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

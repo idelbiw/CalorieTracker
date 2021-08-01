@@ -9,6 +9,9 @@ import Foundation
 
 class EntriesController {
     
+    //MARK: - Singleton -
+    static var shared = EntriesController()
+    
     //MARK: - Properties -
     var calorieEntries: [CalorieEntry] = []
     var totalCalories = 0
@@ -45,6 +48,7 @@ class EntriesController {
         calculateTotalCalories()
         saveEntries()
     }
+    
     func deleteEntry(indexOfEntry: Int) {
         calorieEntries.remove(at: indexOfEntry)
         calculateTotalCalories()
