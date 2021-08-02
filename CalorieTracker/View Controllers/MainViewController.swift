@@ -99,6 +99,11 @@ class MainViewController: UIViewController {
         super.viewWillAppear(animated)
         tableView.delegate = self
         tableView.dataSource = self
+        progressView.setProgress(to: 0.0, withAnimation: true)
+        updateViews()
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         updateViews()
     }
     func updateViews() {
@@ -123,8 +128,14 @@ class MainViewController: UIViewController {
         let totalcalories = Double(controller.totalCalories)
         let goal = Double(defaults.value(forKey: .dailyGoalKey) as? String ?? "0")!
         let result = totalcalories / goal
-        progressView.setProgress(to: result, withAnimation: false)
         
+        if controller.totalCalories <= Int(goal) {
+            progressView.lineFinishColor = .green
+        } else {
+            progressView.lineFinishColor = .systemRed
+        }
+        
+        progressView.setProgress(to: result, withAnimation: false)
     }
     
     //MARK: - Navigtion
