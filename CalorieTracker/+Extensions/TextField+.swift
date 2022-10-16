@@ -7,6 +7,7 @@
 
 import UIKit
 
+// Adding the 'done' button to the keyboard
 extension UITextField {
     
     @IBInspectable var doneAccessory: Bool {

@@ -14,7 +14,7 @@ class CalorieEntry: Codable, Equatable {
     let calories: Int
     let date: Date
     
-    //MARK: - Initializer -
+    //MARK: - Initializers -
     init(calories: Int) {
         self.calories = calories
         self.date = Date()

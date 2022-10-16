@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import FittedSheets
 
 class MainViewController: UIViewController {
     
@@ -56,7 +55,7 @@ class MainViewController: UIViewController {
             }
         }
         
-        alert.addTextField { $0.keyboardType = .numberPad }
+        alert.addTextField { $0.placeholder = "Number of Calroies" ; $0.keyboardType = .numberPad }
         alert.addTextField(configurationHandler: { $0.placeholder = "Optional: name of meal or snack?"})
         alert.addAction(okButtonAction)
         alert.addAction(cancelButtonAction)
@@ -153,6 +152,7 @@ class MainViewController: UIViewController {
         
         present(addEntryAlert, animated: true)
     }
+    
     
 }   //End of class
 
