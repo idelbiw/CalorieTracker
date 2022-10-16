@@ -12,7 +12,9 @@ class OptionsViewController: UIViewController {
 //MARK: - Presentable Alerts
     var inputInvalidAlert: UIAlertController {
         let alert = UIAlertController(title: "Input Invalid", message: "What you entered for the amount of calories was invalid, please try again.", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default)
+        let okAction = UIAlertAction(title: "OK", style: .default) { (_) in
+            self.present(self.setDailyGoalAlert, animated: true)
+        }
         alert.addAction(okAction)
         return alert
     }

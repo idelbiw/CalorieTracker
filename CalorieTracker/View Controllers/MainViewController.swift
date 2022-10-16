@@ -12,20 +12,10 @@ class MainViewController: UIViewController {
     //MARK: - Presentable Alerts
     var inputInvalidAlert: UIAlertController {
         let alert = UIAlertController(title: "Input Invalid", message: "What you entered for the amount of calories was invalid, please try again.", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default)
-        alert.addAction(okAction)
-        return alert
-    }
-    var clearAllEntriesWarningAlert: UIAlertController {
-        let alert = UIAlertController(title: "Are you sure you want to clear all of your calorie entries?", message: "This will clear everything you've entered so far and reset the tracker", preferredStyle: .actionSheet)
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-        let clearAllAction = UIAlertAction(title: "Clear All", style: .destructive) { (_) in
-            self.controller.clearAllEntries()
-            self.updateViews()
+        let okAction = UIAlertAction(title: "OK", style: .default) { (_) in
+            self.present(self.setDailyGoalAlert, animated: true)
         }
-        
-        alert.addAction(cancelAction)
-        alert.addAction(clearAllAction)
+        alert.addAction(okAction)
         return alert
     }
     var addEntryAlert: UIAlertController {
@@ -74,12 +64,10 @@ class MainViewController: UIViewController {
             self.defaults.setValue(textInput, forKey: .dailyGoalKey)
             self.updateDailyGoal()
         }
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
         alert.addTextField { (textField) in
             textField.keyboardType = .numberPad
         }
         alert.addAction(okAction)
-        alert.addAction(cancelAction)
         return alert
     }
     
@@ -113,7 +101,11 @@ class MainViewController: UIViewController {
         updateProgressView()
     }
     func updateDailyGoal() {
-        calorieGoalLabel.text = (defaults.value(forKey: .dailyGoalKey) as? String) ?? "0"
+        guard let calorieGoal = defaults.value(forKey: .dailyGoalKey) as? String else {
+            self.present(setDailyGoalAlert, animated: true)
+            return
+        }
+        calorieGoalLabel.text = calorieGoal
     }
     func configureProgressView() {
         progressView.lineWidth = 10
