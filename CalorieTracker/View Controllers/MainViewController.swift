@@ -12,17 +12,18 @@ class MainViewController: UIViewController {
     //MARK: - Presentable Alerts
     var inputInvalidAlert: UIAlertController {
         let alert = UIAlertController(title: "Input Invalid", message: "What you entered for the amount of calories was invalid, please try again.", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default) { (_) in
-            self.present(self.setDailyGoalAlert, animated: true)
+        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+            self.updateViews()
         }
         alert.addAction(okAction)
         return alert
     }
+    
     var addEntryAlert: UIAlertController {
         let alert = UIAlertController(title: "New Calorie Entry", message: "Enter the number of calories for this entry", preferredStyle: .alert)
         let cancelButtonAction = UIAlertAction(title: "Cancel", style: .cancel)
         
-        let okButtonAction = UIAlertAction(title: "OK", style: .default) { (_) in
+        let okButtonAction = UIAlertAction(title: "OK", style: .default) { _ in
             let caloriesTextField = alert.textFields![0]
             let nameTextField = alert.textFields![1]
             
@@ -52,23 +53,69 @@ class MainViewController: UIViewController {
         
         return alert
     }
+    
     var setDailyGoalAlert: UIAlertController {
         let alert = UIAlertController(title: "Daily Calorie Goal 💪", message: "Enter the number of calories you want to consume daily to achieve your calorie deficit", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default) { (_) in
+        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
             let textField = alert.textFields![0]
             guard let textInput = textField.text else { return }
-            guard let _ = Int(textInput) else {
+            guard let newGoal = Int(textInput) else {
                 self.present(self.inputInvalidAlert, animated: true)
                 return
             }
+            
+            if newGoal >= 5000 {
+                self.dailyGoalTooHighAlert(dailyGoalInput: textInput)
+            }
+            if newGoal <= 1000 {
+                self.dailyGoalTooLowAlert(dailyGoalInput: textInput)
+            }
+            
+            
             self.defaults.setValue(textInput, forKey: .dailyGoalKey)
-            self.updateDailyGoal()
+            self.updateViews()
         }
         alert.addTextField { (textField) in
             textField.keyboardType = .numberPad
         }
         alert.addAction(okAction)
         return alert
+    }
+    
+    func dailyGoalTooHighAlert(dailyGoalInput: String) {
+        var goalTooHighAlert: UIAlertController {
+            let alert = UIAlertController(title: "That's pretty high!", message: "\(dailyGoalInput) calories is unusually high for the average person to have as their daily intake, are you sure this what you want? 🤔", preferredStyle: .alert)
+            let yesAction = UIAlertAction(title: "That's right 😎", style: .destructive) { _ in
+                self.defaults.setValue(dailyGoalInput, forKey: .dailyGoalKey)
+                self.updateViews()
+            }
+            
+            let noAction = UIAlertAction (title: "Change amount", style: .default) { _ in
+                self.present(self.setDailyGoalAlert, animated: true)
+            }
+            
+            alert.addAction(yesAction)
+            alert.addAction(noAction)
+            return alert
+        }
+    }
+    
+    func dailyGoalTooLowAlert(dailyGoalInput: String) {
+        var goalTooLowAlert: UIAlertController {
+            let alert = UIAlertController(title: "That's... a bit low", message: "\(dailyGoalInput) calories is unusually low for the average person to have as their daily intake, are you sure this what you want? 🤔", preferredStyle: .alert)
+            let yesAction = UIAlertAction(title: "That's right 😎", style: .destructive) { _ in
+                self.defaults.setValue(dailyGoalInput, forKey: .dailyGoalKey)
+                self.updateViews()
+            }
+            let noAction = UIAlertAction (title: "Change amount", style: .default) { _ in
+                self.present(self.setDailyGoalAlert, animated: true)
+            }
+            
+            alert.addAction(yesAction)
+            alert.addAction(noAction)
+            return alert
+        }
+        self.present(goalTooLowAlert, animated: true)
     }
     
     //MARK: - Properties
