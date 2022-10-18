@@ -10,7 +10,7 @@ import Foundation
 class CalorieEntry: Codable, Equatable {
 
     //MARK: - Properties -
-    let name: String?
+    var name: String?
     let calories: Int
     let date: Date
     

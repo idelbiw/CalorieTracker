@@ -18,6 +18,7 @@ class OptionsViewController: UIViewController {
         alert.addAction(okAction)
         return alert
     }
+    
     var clearAllEntriesWarningAlert: UIAlertController {
         let alert = UIAlertController(title: "Are you sure you want to clear all of your calorie entries?", message: "This will clear everything you've entered so far and reset the tracker", preferredStyle: .actionSheet)
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
@@ -30,6 +31,7 @@ class OptionsViewController: UIViewController {
         alert.addAction(clearAllAction)
         return alert
     }
+    
     var setDailyGoalAlert: UIAlertController {
         let alert = UIAlertController(title: "Daily Calorie Goal 💪", message: "Enter the number of calories you want to consume daily to achieve your calorie deficit", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default) { (_) in
