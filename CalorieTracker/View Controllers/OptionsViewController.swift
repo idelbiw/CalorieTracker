@@ -56,7 +56,11 @@ class OptionsViewController: UIViewController {
     
     func presentCreditsAlert() {
         var creditsAlertController: UIAlertController {
-            let alert = UIAlertController(title: "Credits 📝", message: "Icon made by Smashicons from www.flaticon.com", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Credits 📝", message:
+                                            """
+Circular progress bar was made by the amazing Yogesh Manghnani
+App icon made by Smashicons from www.flaticon.
+""", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "OK", style: .default)
             alert.addAction(okAction)
             return alert
@@ -120,4 +124,3 @@ extension OptionsViewController: UITableViewDelegate, UITableViewDataSource {
     
 } //End of extension
 
-// Credit line: Icon made by Smashicons from www.flaticon.com
