@@ -47,6 +47,7 @@ class OptionsViewController: UIViewController {
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
         alert.addTextField { (textField) in
             textField.keyboardType = .numberPad
+            textField.placeholder = "Number of Calories"
         }
         alert.addAction(okAction)
         alert.addAction(cancelAction)

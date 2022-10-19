@@ -78,6 +78,7 @@ class MainViewController: UIViewController {
         }
         alert.addTextField { (textField) in
             textField.keyboardType = .numberPad
+            textField.placeholder = "Number of Calories"
         }
         alert.addAction(okAction)
         return alert
