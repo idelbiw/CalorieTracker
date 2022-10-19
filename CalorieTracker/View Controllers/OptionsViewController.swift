@@ -53,6 +53,16 @@ class OptionsViewController: UIViewController {
         return alert
     }
     
+    func presentCreditsAlert() {
+        var creditsAlertController: UIAlertController {
+            let alert = UIAlertController(title: "Credits 📝", message: "Icon made by Smashicons from www.flaticon.com", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default)
+            alert.addAction(okAction)
+            return alert
+        }
+        present(creditsAlertController, animated: true)
+    }
+    
 //MARK: - Properties
     let controller = EntriesController.shared
     let defaults = UserDefaults.standard
@@ -78,7 +88,7 @@ class OptionsViewController: UIViewController {
 //MARK: - Extensions
 extension OptionsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        2
+        3
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: .optionCellIdentifier)! as UITableViewCell
@@ -89,6 +99,9 @@ extension OptionsViewController: UITableViewDelegate, UITableViewDataSource {
         } else if indexPath.row == 1 {
             cell.textLabel?.text = "Clear all entries"
             cell.detailTextLabel?.text = "Currently Present: " + String(controller.calorieEntries.count)
+        } else if indexPath.row == 2 {
+            cell.textLabel?.text = "Credits"
+            cell.detailTextLabel?.text = ""
         }
         
         return cell
@@ -99,7 +112,11 @@ extension OptionsViewController: UITableViewDelegate, UITableViewDataSource {
             present(setDailyGoalAlert, animated: true)
         } else if row == 1 {
             present(clearAllEntriesWarningAlert, animated: true)
+        } else if row == 2 {
+            presentCreditsAlert()
         }
     }
     
 } //End of extension
+
+// Credit line: Icon made by Smashicons from www.flaticon.com
