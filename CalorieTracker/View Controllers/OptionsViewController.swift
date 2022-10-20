@@ -37,10 +37,20 @@ class OptionsViewController: UIViewController {
         let okAction = UIAlertAction(title: "OK", style: .default) { (_) in
             let textField = alert.textFields![0]
             guard let textInput = textField.text else { return }
-            guard let _ = Int(textInput) else {
+            guard let newGoal = Int(textInput) else {
                 self.present(self.inputInvalidAlert, animated: true)
                 return
             }
+            
+            if newGoal >= 5000 {
+                self.dailyGoalTooHighAlert(dailyGoalInput: textInput)
+                return
+            }
+            if newGoal <= 1000 {
+                self.dailyGoalTooLowAlert(dailyGoalInput: textInput)
+                return
+            }
+            
             self.defaults.setValue(textInput, forKey: .dailyGoalKey)
             self.tableView.reloadData()
         }
@@ -54,12 +64,49 @@ class OptionsViewController: UIViewController {
         return alert
     }
     
+    func dailyGoalTooHighAlert(dailyGoalInput: String) {
+        var goalTooHighAlert: UIAlertController {
+            let alert = UIAlertController(title: "That's pretty high!", message: "\(dailyGoalInput) calories is unusually high for the average person to have as their daily intake, are you sure this what you want? 🤔", preferredStyle: .alert)
+            let yesAction = UIAlertAction(title: "That's right 😎", style: .destructive) { _ in
+                self.defaults.setValue(dailyGoalInput, forKey: .dailyGoalKey)
+                self.tableView.reloadData()
+            }
+
+            let noAction = UIAlertAction (title: "Change amount", style: .default) { _ in
+                self.present(self.setDailyGoalAlert, animated: true)
+            }
+
+            alert.addAction(yesAction)
+            alert.addAction(noAction)
+            return alert
+        }
+        self.present(goalTooHighAlert, animated: true)
+    }
+
+    func dailyGoalTooLowAlert(dailyGoalInput: String) {
+        var goalTooLowAlert: UIAlertController {
+            let alert = UIAlertController(title: "That's... a bit low", message: "\(dailyGoalInput) calories is unusually low for the average person to have as their daily intake, are you sure this what you want? 🤔", preferredStyle: .alert)
+            let yesAction = UIAlertAction(title: "That's right 😎", style: .destructive) { _ in
+                self.defaults.setValue(dailyGoalInput, forKey: .dailyGoalKey)
+                self.tableView.reloadData()
+            }
+            let noAction = UIAlertAction (title: "Change amount", style: .default) { _ in
+                self.present(self.setDailyGoalAlert, animated: true)
+            }
+
+            alert.addAction(yesAction)
+            alert.addAction(noAction)
+            return alert
+        }
+        self.present(goalTooLowAlert, animated: true)
+    }
+    
     func presentCreditsAlert() {
         var creditsAlertController: UIAlertController {
             let alert = UIAlertController(title: "Credits 📝", message:
                                             """
 Circular progress bar was made by the amazing Yogesh Manghnani
-App icon made by Smashicons from www.flaticon.
+App icon made by Smashicons from www.flaticon.com
 """, preferredStyle: .alert)
             let okAction = UIAlertAction(title: "OK", style: .default)
             alert.addAction(okAction)
