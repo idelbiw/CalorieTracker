@@ -64,14 +64,14 @@ class MainViewController: UIViewController {
                 return
             }
             
-//            if newGoal >= 5000 {
-//                self.dailyGoalTooHighAlert(dailyGoalInput: textInput)
-//                return
-//            }
-//            if newGoal <= 1000 {
-//                self.dailyGoalTooLowAlert(dailyGoalInput: textInput)
-//                return
-//            }
+            if newGoal >= 5000 {
+                self.dailyGoalTooHighAlert(dailyGoalInput: textInput)
+                return
+            }
+            if newGoal <= 1000 {
+                self.dailyGoalTooLowAlert(dailyGoalInput: textInput)
+                return
+            }
             
             self.defaults.setValue(textInput, forKey: .dailyGoalKey)
             self.updateViews()
