@@ -379,7 +379,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = DX3RFUH2S9;
 				INFOPLIST_FILE = CalorieTracker/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = TracKcal;
+				INFOPLIST_KEY_CFBundleDisplayName = "Calorie Tracker";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -387,7 +387,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.SGA.TracKcal;
+				PRODUCT_BUNDLE_IDENTIFIER = com.SGA.CalorieTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -407,7 +407,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = DX3RFUH2S9;
 				INFOPLIST_FILE = CalorieTracker/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = TracKcal;
+				INFOPLIST_KEY_CFBundleDisplayName = "Calorie Tracker";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -415,7 +415,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.SGA.TracKcal;
+				PRODUCT_BUNDLE_IDENTIFIER = com.SGA.CalorieTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;

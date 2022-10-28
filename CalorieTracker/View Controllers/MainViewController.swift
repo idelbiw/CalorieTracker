@@ -64,7 +64,7 @@ class MainViewController: UIViewController {
                 return
             }
             
-            if newGoal >= 5000 {
+            if newGoal >= 3000 {
                 self.dailyGoalTooHighAlert(dailyGoalInput: textInput)
                 return
             }
