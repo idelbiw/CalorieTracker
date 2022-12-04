@@ -46,7 +46,7 @@ class MainViewController: UIViewController {
             
         }
         
-        alert.addTextField { $0.placeholder = "Number of Calroies" ; $0.keyboardType = .numberPad }
+        alert.addTextField { $0.placeholder = "Number of Calories" ; $0.keyboardType = .numberPad }
         alert.addTextField(configurationHandler: { $0.placeholder = "Optional: name of meal or snack?"})
         alert.addAction(okButtonAction)
         alert.addAction(cancelButtonAction)
@@ -64,14 +64,14 @@ class MainViewController: UIViewController {
                 return
             }
             
-//            if newGoal >= 5000 {
-//                self.dailyGoalTooHighAlert(dailyGoalInput: textInput)
-//                return
-//            }
-//            if newGoal <= 1000 {
-//                self.dailyGoalTooLowAlert(dailyGoalInput: textInput)
-//                return
-//            }
+            if newGoal >= 3000 {
+                self.dailyGoalTooHighAlert(dailyGoalInput: textInput)
+                return
+            }
+            if newGoal <= 1000 {
+                self.dailyGoalTooLowAlert(dailyGoalInput: textInput)
+                return
+            }
             
             self.defaults.setValue(textInput, forKey: .dailyGoalKey)
             self.updateViews()
