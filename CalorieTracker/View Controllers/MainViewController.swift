@@ -201,18 +201,22 @@ class MainViewController: UIViewController {
 
 //MARK: - Extensions
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         controller.calorieEntries.count
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: .calorieEntryCell) as! CalorieEntryTableViewCell
         let entry = controller.calorieEntries[indexPath.row]
         cell.calorieEntry = entry
         return cell
     }
+    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            controller.deleteEntry(indexOfEntry: indexPath.row)
+            controller.deleteEntry(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic) 
             updateViews()
         }
     }

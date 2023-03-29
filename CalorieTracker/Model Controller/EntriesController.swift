@@ -42,8 +42,8 @@ class EntriesController {
         saveEntries()
     }
     
-    func deleteEntry(indexOfEntry: Int) {
-        calorieEntries.remove(at: indexOfEntry)
+    func deleteEntry(at index: Int) {
+        calorieEntries.remove(at: index)
         calculateTotalCalories()
         saveEntries()
     }
